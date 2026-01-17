@@ -1,0 +1,196 @@
+/* Reset toàn cục cho layout vuông vức */
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important; /* Ép bỏ bo góc */
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ngăn scroll body */
+}
+
+/* Container chính của dashboard */
+.app-container {
+  display: flex;
+  flex-direction: row; /* Bố cục ngang */
+  height: 100vh;
+  width: 100vw;
+  background-color: #f2f4f7;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #d1d5db;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto; /* Cho phép cuộn sidebar */
+}
+
+/* KHỐI ĐIỀU HƯỚNG KIỂU MOODLE */
+/* Khối menu điều hướng chính */
+.nav-block {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 12px 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Tiêu đề khối điều hướng */
+.nav-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Cấu trúc cây menu */
+.nav-tree {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Item cha trong menu */
+.nav-item-parent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  font-size: 0.9rem;
+  color: #444;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.nav-item-parent:hover {
+  background-color: #f1f5f9;
+}
+
+/* Danh sách con của menu */
+.nav-tree-sub {
+  list-style: none;
+  padding-left: 12px;
+  margin: 0;
+}
+
+/* Link điều hướng */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 8px 6px;
+  font-size: 0.85rem;
+  color: #0f6cb0;
+  cursor: pointer;
+  transition: all 0.1s;
+  font-family: inherit;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  background-color: #f0f4f8;
+  color: #0a4b7c;
+}
+
+/* Trạng thái menu đang chọn */
+.nav-link.active {
+  font-weight: 700;
+  color: #000;
+  background-color: #e9ecef;
+  border-left: 3px solid #0f6cb0;
+  padding-left: 5px;
+}
+
+/* Icon nhỏ trong menu */
+.nav-icon-sm {
+  width: 14px;
+  height: 14px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+/* Icon của link */
+.nav-link-icon {
+  width: 15px;
+  height: 15px;
+  color: #0f6cb0;
+}
+
+/* Icon khi link active */
+.nav-link.active .nav-link-icon {
+  color: #000;
+}
+
+/* KHỐI ĐIỀU KHIỂN (UPLOAD, SELECT) */
+/* Khu vực control tách biệt menu */
+.controls-block {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+}
+
+/* Tiêu đề khu vực control */
+.controls-header {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/* Style input trong sidebar */
+.sidebar select,
+.sidebar input[type="text"],
+.sidebar input[type="file"] {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #ccc !important;
+  padding: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* Khối gợi ý / hướng dẫn */
+.tips-container {
+  margin-top: auto;
+  padding: 12px;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  font-size: 0.75rem;
+  color: #495057;
+}
+
+/* NỘI DUNG CHÍNH  */
+.main-content {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Container con chiếm toàn bộ chiều cao */
+.main-content > div {
+  height: 100%;
+}
