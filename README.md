@@ -25,10 +25,10 @@
 Dự án sử dụng bộ dữ liệu _"Ecommerce Customer Churn Analysis and Prediction"_ từ Kaggle, áp dụng các kỹ thuật từ tiền xử lý, phân tích dữ liệu khám phá (EDA), kỹ thuật đặc trưng, đến xây dựng và so sánh **8 mô hình học máy** khác nhau. Kết quả cuối cùng không chỉ là một mô hình dự đoán có độ chính xác cao mà còn là một **hệ thống dashboard tương tác** và **sản phẩm demo**, giúp chuyển hóa dữ liệu thành các insight kinh doanh có giá trị.
 
 #### **Đóng góp cá nhân**
-- Thực hiện tiền xử lý dữ liệu, tạo và lựa chọn đặc trưng cho mô hình.
-- Xây dựng, huấn luyện và đánh giá các mô hình học máy (LightGBM, MLP)
+- Thực hiện tiền xử lý dữ liệu, xây dựng đặc trưng cho mô hình.
+- Xây dựng, huấn luyện và đánh giá các mô hình học máy (LightGBM, MLP).
 - Trực quan hóa dữ liệu bằng Power BI và Flourish.
-- Viết báo cáo
+- Viết báo cáo và slide.
 
 ### **2.  Mục tiêu đồ án**
 
