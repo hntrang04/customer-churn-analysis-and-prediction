@@ -111,4 +111,4 @@ The main objectives of this project are:
 ## 9. Contact
 **Huỳnh Ngọc Trang**  
 - **Email:** hntrang04@gmail.com  
-- **LinkedIn:** https://www.linkedin.com/in/trang-huynh-ngoc-18128b353/
+- **LinkedIn:** [Trang Huynh Ngoc](https://www.linkedin.com/in/trang-huynh-ngoc-18128b353/)
