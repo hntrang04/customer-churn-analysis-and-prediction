@@ -1,107 +1,114 @@
-# customer-churn-analysis-and-prediction
+# Customer Churn Analysis and Prediction
 
+## 1. Overview
 
-### Đồ án: Phân tích và dự đoán khả năng rời bỏ của khách hàng trong Thương mại điện tử
+This project presents an end-to-end **data science workflow** to address the problem of **customer churn prediction** in the e-commerce domain.
 
-**Trường:** Đại học Công nghệ Thông tin - ĐHQG TPHCM  
-**Khoa:** Khoa học và Kỹ thuật Thông tin  
-**Môn học:** Phân tích và Trực quan dữ liệu (IE313.Q11)
+Customer retention is a critical factor for sustainable business growth. By identifying customers who are likely to churn at an early stage, businesses can proactively design effective retention strategies.
 
-*   **Giảng viên hướng dẫn:** ThS. Phạm Nguyễn Phúc Toàn
-*   **Thành viên nhóm:**
-    *   Phạm Huỳnh Tấn Khang
-    *   Huỳnh Ngọc Trang 
-    *   Nguyễn Huỳnh Xuân Nghi
-    *   Nguyễn Thị Ngọc Phước
- 
-    
----
-
-
-### **1.  Giới thiệu**
-
-Đồ án này thực hiện một quy trình khoa học dữ liệu toàn diện nhằm giải quyết bài toán **dự đoán khả năng rời bỏ của khách hàng (Customer Churn)** trong lĩnh vực thương mại điện tử. Việc giữ chân khách hàng là yếu tố sống còn đối với các doanh nghiệp, và khả năng dự đoán sớm các khách hàng có nguy cơ rời bỏ cho phép doanh nghiệp triển khai các chiến lược can thiệp chủ động và hiệu quả.
-
-Dự án sử dụng bộ dữ liệu _"Ecommerce Customer Churn Analysis and Prediction"_ từ Kaggle, áp dụng các kỹ thuật từ tiền xử lý, phân tích dữ liệu khám phá (EDA), kỹ thuật đặc trưng, đến xây dựng và so sánh **8 mô hình học máy** khác nhau. Kết quả cuối cùng không chỉ là một mô hình dự đoán có độ chính xác cao mà còn là một **hệ thống dashboard tương tác** và **sản phẩm demo**, giúp chuyển hóa dữ liệu thành các insight kinh doanh có giá trị.
-
-#### **Đóng góp cá nhân**
-- Thực hiện tiền xử lý dữ liệu, xây dựng đặc trưng cho mô hình.
-- Xây dựng, huấn luyện và đánh giá các mô hình học máy (LightGBM, MLP).
-- Trực quan hóa dữ liệu bằng Power BI và Flourish.
-- Viết báo cáo và slide.
-
-### **2.  Mục tiêu đồ án**
-
-Đồ án này được thực hiện nhằm đạt được ba mục tiêu chính:
-
-*   **Phân tích và xác định** các yếu tố chính ảnh hưởng đến quyết định rời bỏ của khách hàng.
-*   **Xây dựng và so sánh** các mô hình học máy để lựa chọn ra mô hình có hiệu suất dự đoán tốt nhất.
-*   **Đề xuất các giải pháp kinh doanh** khả thi dựa trên những insight đã phân tích để giảm tỷ lệ Churn.
-
-### **3.  Cấu trúc thư mục**
-
-Dự án được tổ chức theo cấu trúc sau:
-
-```
-.
-├── 1.Dataset/       # Chứa dữ liệu thô và dữ liệu đã được làm sạch (.csv)
-├── 2.Preprocessing/ # Chứa notebook cho quá trình tiền xử lý dữ liệu
-├── 3.EDA/           # Chứa notebook cho quá trình phân tích dữ liệu khám phá
-├── 4.Visualization/ # Chứa các sản phẩm trực quan hóa (file .pbix, link Flourish, source code & link website)
-├── 5.Modeling/      # Chứa notebook cho quá trình xây dựng và đánh giá mô hình
-├── 6.Report/        # Chứa file báo cáo cuối kỳ của đồ án
-└── README.md        # File mô tả tổng quan về dự án
-```
-
-
-### **4.  Quy trình thực hiện**
-
-#### **4.1. Tiền xử lý dữ liệu**
-
-*   **Làm sạch dữ liệu không nhất quán:** Chuẩn hóa các giá trị hạng mục (ví dụ: "Phone" và "Mobile Phone").
-*   **Xử lý giá trị thiếu:** Áp dụng các chiến lược điền dữ liệu phù hợp với từng biến (trung vị, điền có điều kiện).
-*   **Xử lý ngoại lai:** Sử dụng phương pháp **IQR** và kỹ thuật **capping** để xử lý các giá trị bất thường.
-
-#### **4.2. Phân tích Dữ liệu Khám phá (EDA)**
-
-*   Thực hiện **phân tích đơn biến và đa biến** để tìm ra các xu hướng, mẫu và insight quan trọng liên quan đến hành vi rời bỏ.
-*   Các kết quả phân tích được trực quan hóa bằng hệ thống **dashboard trên Power BI**.
-
-#### **4.3. Kỹ thuật tạo & lựa chọn đặc trưng**
-
-*   **Tạo đặc trưng mới:** Xây dựng biến `DevicePerTenure` để đo lường tốc độ tiếp nhận công nghệ của khách hàng.
-*   **Lựa chọn đặc trưng:** Sử dụng kết hợp **Ma trận tương quan**, **Kiểm định Chi-squared** và hệ số **Cramér's V** để loại bỏ 5 cột không cần thiết, nhằm giảm đa cộng tuyến và nhiễu.
-
-#### **4.4. Xây dựng mô hình**
-
-*   **Xây dựng và so sánh 8 mô hình khác nhau:** Logistic Regression, KNN, SVM, Random Forest, Gradient Boosting, **XGBoost**, **LightGBM**, và MLP.
-*   Sử dụng **Pipeline** để tự động hóa quy trình chuẩn hóa (`StandardScaler`) và mã hóa (`OneHotEncoder`).
-*   Áp dụng các kỹ thuật xử lý dữ liệu mất cân bằng: `class_weight` và **SMOTE**.
-*   Đánh giá mô hình một cách khách quan bằng **Kiểm định chéo phân tầng 10 lần** (10-fold Stratified Cross-Validation).
-
-#### **4.5. Đánh giá mô hình**
-
-*   Sử dụng các độ đo toàn diện: `Accuracy`, `ROC-AUC`, và đặc biệt tập trung vào **`F1-Score`**, **`Precision`**, **`Recall`** cho lớp Churn (C1) để đánh giá hiệu quả kinh doanh.
+The project uses the *E-commerce Customer Churn Analysis and Prediction* dataset from Kaggle and applies techniques ranging from **data preprocessing**, **exploratory data analysis (EDA)**, **feature engineering**, to **training and comparing multiple machine learning models**.  
+The final outcome includes not only a high-performing predictive model but also **interactive dashboards and visualization products** that translate data into actionable business insights.
 
 
 
-### **5.  Kết quả nổi bật**
+## 2. Project Objectives
 
- **Insight chính từ EDA:** Tỷ lệ rời bỏ cao đột biến ở nhóm khách hàng mới (0-6 tháng), nhóm mua ngành hàng "Thời trang", và đặc biệt là nhóm có khiếu nại.
+The main objectives of this project are:
 
- **Mô hình Tốt nhất: XGBoost** được xác định là mô hình hiệu quả nhất.
- 
+- **Analyze and identify** key factors influencing customer churn behavior.
+- **Build and compare** multiple machine learning models to select the most effective one.
+- **Propose data-driven business recommendations** to reduce churn based on analytical insights.
 
 
-### **6.  Sản phẩm trực quan hóa**
 
-*   **Power BI Dashboard:** Một hệ thống gồm **5 trang báo cáo tương tác**, cung cấp cái nhìn 360 độ về bài toán Churn, từ tổng quan điều hành đến phân tích hiệu suất mô hình.
-*   [**Flourish Data Story:**](https://public.flourish.studio/story/3520181/) Một câu chuyện dữ liệu kể về "hành trình rời bỏ" của khách hàng, sử dụng các biểu đồ ấn tượng như **Parliament Chart** và **Sankey Diagram**.
-*   [**Website Demo:**](https://pttqdl-webdemo.vercel.app/) Một ứng dụng web demo (xây dựng bằng **React & TypeScript**) cho phép người dùng tự tải lên file CSV và tạo các biểu đồ phân tích một cách linh hoạt.
+## 3. Project Structure
 
-  
+      ├── 1.Dataset/       # Raw and cleaned datasets (.csv)
+      ├── 2.Preprocessing/ # Data preprocessing notebooks
+      ├── 3.EDA/           # Exploratory Data Analysis notebooks
+      ├── 4.Visualization/ # Power BI files, Flourish links, website demo source code
+      ├── 5.Modeling/      # Model training and evaluation notebooks
+      ├── 6.Report/        # Final report and presentation
+      └── README.md        # Project documentation
 
-### **7.  Thông tin liên hệ**
 
-*   **Email:** hntrang04@gmail.com
-*   **LinkedIn:** https://www.linkedin.com/in/trang-huynh-ngoc-18128b353/
+## 4. Methodology
+
+### 4.1 Data Preprocessing
+
+- **Data cleaning:** Standardizing inconsistent categorical values (e.g., "Phone" vs. "Mobile Phone").
+- **Missing value handling:** Applying appropriate imputation strategies (median, conditional imputation).
+- **Outlier treatment:** Using the **IQR method** and **capping techniques** to handle extreme values.
+
+### 4.2 Exploratory Data Analysis (EDA)
+
+- Conducted **univariate and multivariate analysis** to discover trends, patterns, and churn-related insights.
+- Insights were visualized through **interactive Power BI dashboards**.
+
+### 4.3 Feature Engineering & Selection
+
+- **Feature creation:** Introduced `DevicePerTenure` to capture customer technology adoption behavior.
+- **Feature selection:** Combined **correlation analysis**, **Chi-squared tests**, and **Cramér’s V** to remove irrelevant features and reduce multicollinearity.
+
+### 4.4 Modeling
+
+- Built and compared **8 machine learning models**:
+  - Logistic Regression
+  - KNN
+  - SVM
+  - Random Forest
+  - Gradient Boosting
+  - XGBoost
+  - LightGBM
+  - MLP
+- Used **Pipelines** for scaling (`StandardScaler`) and encoding (`OneHotEncoder`).
+- Addressed class imbalance using `class_weight` and **SMOTE**.
+- Evaluated models with **10-fold Stratified Cross-Validation**.
+
+### 4.5 Model Evaluation
+
+- Evaluation metrics included `Accuracy`, `ROC-AUC`, and a strong focus on **`F1-score`**, **`Precision`**, and **`Recall`** for the churn class to reflect business impact.
+
+
+
+## 5. Key Results
+
+- **EDA Insights:** High churn rates were observed among new customers (0–6 months), customers purchasing fashion-related products, and customers with complaints.
+- **Best-performing model:** **XGBoost** achieved the best overall performance.
+
+
+
+## 6. Visualization Products
+
+- **Power BI Dashboard:** A system of **5 interactive report pages** providing a 360-degree view of customer churn, from executive overview to model performance.
+- **Flourish Data Story:**  
+  https://public.flourish.studio/story/3520181/  
+  An interactive storytelling experience illustrating the customer churn journey using visualizations such as **Parliament Charts** and **Sankey Diagrams**.
+- **Website Demo:**  
+  https://pttqdl-webdemo.vercel.app/  
+  A demo web application built with **React & TypeScript**, allowing users to upload CSV files and generate analytical visualizations dynamically.
+
+
+
+## 7. Academic Information
+
+- **University:** University of Information Technology – VNU HCMC  
+- **Faculty:** Faculty of Information Science and Engineering
+- **Course:** Data Analysis and Visualization (IE313.Q11)  
+- **Instructor:** MSc. Phạm Nguyễn Phúc Toàn  
+
+
+
+## 8. My Contribution
+
+- Performed data preprocessing and feature engineering.
+- Built, trained, and evaluated machine learning models (**LightGBM, MLP**).
+- Designed interactive visualizations using **Power BI** and **Flourish**.
+- Authored the project report and presentation slides.
+
+
+
+## 9. Contact
+**Huỳnh Ngọc Trang**  
+- **Email:** hntrang04@gmail.com  
+- **LinkedIn:** https://www.linkedin.com/in/trang-huynh-ngoc-18128b353/
