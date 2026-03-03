@@ -95,7 +95,7 @@ The main objectives of this project are:
 - **University:** University of Information Technology – VNU HCMC  
 - **Faculty:** Faculty of Information Science and Engineering
 - **Course:** Data Analysis and Visualization (IE313.Q11)  
-- **Instructor:** MSc. Phạm Nguyễn Phúc Toàn  
+- **Instructor:** MSc. Pham Nguyen Phuc Toan
 
 
 
